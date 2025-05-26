@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RECURSIVE DREAM STATES</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #ff00ff;
+      font-family: monospace;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      height: 100%;
+      overflow: hidden;
+    }
+    .screen {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #000;
+      z-index: 10;
+      padding: 2rem;
+      box-sizing: border-box;
+    }
+    .screen.active {
+      display: flex;
+    }
+    .warning, .terminal-box, .easter-egg {
+      border: 1px solid #ff00ff;
+      padding: 1.5rem;
+      text-align: center;
+      max-width: 700px;
+      box-shadow: 0 0 15px #ff00ff44;
+      background-color: #000;
+    }
+    .warning {
+      color: red;
+      border-color: red;
+      box-shadow: 0 0 10px red;
+      margin-bottom: 2rem;
+    }
+    .button-group {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: row;
+      gap: 2rem;
+    }
+    button {
+      background-color: #ff00ff;
+      color: black;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      font-family: monospace;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .main-container {
+      max-width: 900px;
+      width: 90vw;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .password-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background-color: #ff00ff;
+      color: black;
+      padding: 0.5rem 1rem;
+      font-family: monospace;
+      cursor: pointer;
+      font-size: 1rem;
+      border: none;
+      z-index: 20;
+    }
+    #password-box {
+      display: none;
+      margin-top: 1rem;
+    }
+    input[type="text"] {
+      background-color: black;
+      border: 1px solid #ff00ff;
+      color: #ff00ff;
+      font-family: monospace;
+      padding: 0.5rem;
+      width: 300px;
+      margin-top: 1rem;
+    }
+  
+.glitch {
+  position: relative;
+  color: #ff00ff;
+  animation: glitch 1s infinite;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.glitch::before {
+  color: #00ffff;
+  z-index: -1;
+  animation: glitchTop 1s infinite;
+}
+.glitch::after {
+  color: #ff0000;
+  z-index: -2;
+  animation: glitchBottom 1s infinite;
+}
+@keyframes glitch {
+  0% { transform: none; }
+  20% { transform: skew(-0.5deg, 0.2deg); }
+  40% { transform: skew(0.5deg, -0.2deg); }
+  60% { transform: none; }
+}
+@keyframes glitchTop {
+  0%, 100% { clip-path: inset(0 0 90% 0); }
+  50% { clip-path: inset(0 0 30% 0); transform: translateY(-2px); }
+}
+@keyframes glitchBottom {
+  0%, 100% { clip-path: inset(90% 0 0 0); }
+  50% { clip-path: inset(30% 0 0 0); transform: translateY(2px); }
+}
+
+</style>
+</head>
+<body>
+  
+
+  <div class="screen active" id="start-screen">
+    <div class="warning">
+      ⚠ WARNUNG:<br>
+      Einige Inhalte dieser Seite können auf bestimmte Nutzer verstörend wirken.
+    </div>
+    <div class="terminal-box">
+      <p class="glitch" data-text="Willst du diese Seite wirklich betreten?">Willst du diese Seite wirklich betreten?</p>
+      <p>Es gibt kein Zurück...</p>
+    </div>
+    <div class="button-group">
+      <button onclick="enterSite()">JA</button>
+      <button onclick="stayOut()">NEIN</button>
+    </div>
+  </div>
+
+  <div class="screen" id="main-screen">
+    <button class="password-toggle" onclick="togglePasswordBox()">Passwort</button>
+    <div class="main-container">
+      <p>
+        Du bist hier, weil du es erlebt hast.<br>
+        Nicht weil du’s verstehst.<br>
+        Nicht weil du’s beweisen kannst.<br>
+        Sondern, weil es dich nicht mehr loslässt.<br>
+        Wenn du dachtest, du träumst: Nein.<br>
+        Wenn du dachtest, du stirbst: Vielleicht.<br>
+        Wenn du dachtest, du kannst es ändern: Lies weiter.
+      </p>
+      <div id="password-box">
+        <input id="password-input" type="text" placeholder="> Zugangscode eingeben" onkeydown="checkPassword(event)">
+      </div>
+    </div>
+  </div>
+
+  <div class="screen" id="easter-egg">
+    <div class="easter-egg">
+      <p><strong>Zugriff gewährt</strong></p>
+      <p>💀 Willkommen zurück in der Zwischenzeit.</p>
+      <p>Du hast die Linie überschritten.<br>Der Rest ist nicht für jeden gedacht.</p>
+      <p><em>"Manche Türen schließen sich, wenn man sie zu oft betrachtet."</em></p>
+    </div>
+  </div>
+
+  <script>
+    function enterSite() {
+      document.getElementById('start-screen').classList.remove('active');
+      document.getElementById('main-screen').classList.add('active');
+      // Audio entfernt – kein Netzwerkzugriff
+    }
+
+    function stayOut() {
+      alert("Verbindung getrennt.");
+    }
+
+    function togglePasswordBox() {
+      const box = document.getElementById('password-box');
+      box.style.display = box.style.display === "block" ? "none" : "block";
+    }
+
+    function checkPassword(e) {
+      if (e.key === "Enter") {
+        const value = e.target.value.trim().toLowerCase();
+        if (value === "welcometotheafterlife") {
+          document.getElementById('main-screen').classList.remove('active');
+          document.getElementById('easter-egg').classList.add('active');
+        } else {
+          alert("Zugriff verweigert.");
+        }
+        e.target.value = "";
+      }
+    }
+  </script>
+</body>
+</html>
