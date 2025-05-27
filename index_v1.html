@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RECURSIVE DREAM STATES</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #ff00ff;
+      font-family: monospace;
+      font-size: 0.95rem;
+      line-height: 1.4;
+      height: 100%;
+      overflow: hidden;
+    }
+    .screen {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 2rem;
+      box-sizing: border-box;
+      overflow-y: auto;
+    }
+    .screen.active {
+      display: flex;
+    }
+    .warning {
+      border: 1px solid red;
+      color: red;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      background-color: #1a0000;
+      font-weight: bold;
+      text-align: center;
+    }
+    .glitch-red {
+      position: relative;
+      color: red;
+      animation: glitchRed 1s infinite;
+    }
+    .glitch-red::before,
+    .glitch-red::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+    .glitch-red::before {
+      color: #ff4d4d;
+      z-index: -1;
+      animation: glitchUpRed 1s infinite;
+    }
+    .glitch-red::after {
+      color: #ff0000;
+      z-index: -2;
+      animation: glitchUpRed 1s infinite;
+    }
+    @keyframes glitchRed {
+      0% { transform: none; }
+      20% { transform: skew(-0.5deg, 0.2deg); }
+      40% { transform: skew(0.5deg, -0.2deg); }
+      60% { transform: none; }
+    }
+    @keyframes glitchUpRed {
+      0%, 100% { clip-path: inset(0 0 90% 0); }
+      50% { clip-path: inset(0 0 30% 0); transform: translateY(-2px); }
+    }
+    .button-group {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      gap: 2rem;
+    }
+    button {
+      background-color: #ff00ff;
+      color: black;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      font-family: monospace;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .password-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background-color: #ff00ff;
+      color: black;
+      padding: 0.5rem 1rem;
+      font-family: monospace;
+      cursor: pointer;
+      font-size: 1rem;
+      border: none;
+      z-index: 20;
+    }
+    input[type="text"] {
+      background-color: black;
+      border: 1px solid #ff00ff;
+      color: #ff00ff;
+      font-family: monospace;
+      padding: 0.5rem;
+      width: 300px;
+      margin-top: 1rem;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      max-width: 90vw;
+    }
+  </style>
+</head>
+<body>
+  <div class="screen active" id="start-screen">
+    <div class="warning">
+      <span class="glitch-red" data-text="⚠ WARNUNG:">⚠ WARNUNG:</span><br>
+      Einige Inhalte dieser Seite können auf bestimmte Nutzer verstörend wirken.
+    </div>
+    <div>
+      <p>Willst du diese Seite wirklich betreten?<br>Es gibt kein Zurück...</p>
+    </div>
+    <div class="button-group">
+      <button onclick="enterSite()">JA</button>
+      <button onclick="stayOut()">NEIN</button>
+    </div>
+  </div>
+
+  <div class="screen" id="main-screen">
+    <button class="password-toggle" onclick="togglePasswordBox()">Passwort</button>
+    <div style="text-align: center; margin-bottom: 2rem;">
+      <pre>
+████████████████████████████████████████████████████████████
+      R E C U R S I V E   D R E A M   S T A T E S
+             are we ever done dying?
+████████████████████████████████████████████████████████████
+      </pre>
+    </div>
+    <pre>
+Du bist hier, weil du es erlebt hast.
+Nicht weil du’s verstehst.
+Nicht weil du’s beweisen kannst.
+Sondern, weil es dich nicht mehr loslässt.
+Wenn du dachtest, du träumst:
+Nein.
+Wenn du dachtest, du stirbst:
+Vielleicht.
+Wenn du dachtest, du kannst es ändern:
+Lies weiter.
+📂 USERLOGS ↓
+✦ mirrorchild – 14.07.2021 – 01:46 Uhr
+
+„48 Stunden. Ich dachte, ich kann sie retten.
+Aber sie hat mich angesehen, als wäre ich jemand anders.
+Vielleicht bin ich es.
+Vielleicht ist sie es.
+Vielleicht war sie nie da.“
+✦ eyelid.black – 28.03.2022 – 03:12 Uhr
+
+„Die Welt hat dieselben Farben, aber einen anderen Ton.
+Menschen sprechen dieselben Sätze – aber sie meinen nichts.
+Ich dachte, sie hätte gelächelt.
+Aber der Spiegel hatte Risse.“
+✦ [gelöschter Benutzer] – Beitrag nicht mehr verfügbar
+
+„Sie hat es gewusst. Schon beim ersten Mal. Ich hab’s an ihren Händen gesehen.“
+(Kommentar gelöscht von Admin)
+✦ rückwärtssucher – 06.09.2022 – 18:40 Uhr
+
+„Man sagt, alles passiert aus einem Grund.
+Was, wenn der Grund war:
+Damit du es nochmal siehst?
+Damit du diesmal erkennst, was du getan hast?“
+✦ deadfacedoll antwortet auf rückwärtssucher
+
+„Boah. Oder du träumst nur und bist eigentlich tot.
+Lol. Wieder einer, der zu viel Anime schaut.“
+✦ A3X90 – 12.01.2023 – 21:10 Uhr
+
+„Ich hatte mal was Ähnliches… dachte auch, ich wär zurück.
+Turns out: Ich hatte einfach 'ne doppelte Dosis Ritalin erwischt.
+Ist alles Chemie, Bro.“
+✦ _admin.void/_**
+
+Thema beobachtet. Sprache instabil.
+Zugriff auf vollständige Log-Historie nicht mehr möglich.
+Hinweis:
+Einige Userinhalte können destruktive Denkmuster auslösen.
+Manche Gedanken kommen nicht zurück, wenn man sie zu Ende denkt.
+🔒 DOWNLOADBEREICH
+[echo_in_the_static.mp4] —  Datei nicht mehr verfügbar
+[mirrorchild.jpg] —  Bild beschädigt oder leer
+[message_to_myself.txt] —  Zugriff verweigert
+Du liest das hier,
+weil du gehofft hast,
+du bekommst eine zweite Chance.
+Vielleicht bekommst du sie.
+Vielleicht auch nicht.
+Vielleicht war sie nie zu retten.
+Vielleicht warst du es.
+    </pre>
+    <div id="password-box" style="display: none;">
+      <input id="password-input" type="text" placeholder="> Zugangscode eingeben" onkeydown="checkPassword(event)">
+    </div>
+    <div style="height: 4rem;"></div>
+  </div>
+
+  <div class="screen" id="easter-egg" style="overflow-y: auto; height: 100vh;">
+    <pre>
+Zugriff gewährt  
+Welcome back, mirrorchild.
+
+Der Pfad führt nicht zurück.  
+Nur tiefer.
+
+"Manche Türen schließen sich, wenn man sie zu oft betrachtet."
+    </pre>
+    <div style="height: 4rem;"></div>
+  </div>
+
+  <script>
+    function enterSite() {
+      document.getElementById('start-screen').classList.remove('active');
+      document.getElementById('main-screen').classList.add('active');
+    }
+    function stayOut() {
+      alert("Verbindung getrennt.");
+    }
+    function togglePasswordBox() {
+      const box = document.getElementById('password-box');
+      box.style.display = box.style.display === "block" ? "none" : "block";
+    }
+    function checkPassword(e) {
+      if (e.key === "Enter") {
+        const value = e.target.value.trim().toLowerCase();
+        if (value === "welcometotheafterlife") {
+          document.getElementById('main-screen').classList.remove('active');
+          document.getElementById('easter-egg').classList.add('active');
+        } else {
+          alert("Zugriff verweigert.");
+        }
+        e.target.value = "";
+      }
+    }
+  </script>
+</body>
+</html>
