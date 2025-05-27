@@ -1,107 +1,35 @@
 
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
-<meta charset="utf-8"/>
-<title>Recursive Dream States</title>
-<style>
+  <meta charset="UTF-8">
+  <title>Recursive Dream States</title>
+  <style>
     body {
-      margin: 0;
-      padding: 0;
-      background-color: #000;
+      background: black;
       color: #ff00ff;
       font-family: monospace;
-      font-size: 16px;
+      margin: 0;
+      padding: 2rem;
     }
-    .screen {
-      display: none;
-      padding: 4rem 2rem;
-    }
-    .active {
-      display: block;
-    }
-    h1 {
-      text-align: center;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      font-size: 1.8rem;
-    }
-    pre {
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-  
-
-.glitch-text {
-  color: #ff00ff;
-  font-family: monospace;
-  font-size: 2rem;
-  position: relative;
-  text-align: center;
-}
-.glitch-text::before, .glitch-text::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  color: #ff00ff;
-  clip: rect(0, 900px, 0, 0);
-}
-.glitch-text::before {
-  animation: glitchTop 2s infinite linear alternate-reverse;
-}
-.glitch-text::after {
-  animation: glitchBottom 1.5s infinite linear alternate-reverse;
-}
-
-@keyframes glitchTop {
-  0% { clip: rect(0, 900px, 0, 0); }
-  10% { clip: rect(0, 900px, 20px, 0); transform: translate(-2px, -2px); }
-  20% { clip: rect(0, 900px, 0, 0); }
-  30% { clip: rect(0, 900px, 25px, 0); transform: translate(2px, -1px); }
-  100% { clip: rect(0, 900px, 0, 0); }
-}
-
-@keyframes glitchBottom {
-  0% { clip: rect(0, 900px, 0, 0); }
-  10% { clip: rect(25px, 900px, 50px, 0); transform: translate(2px, 2px); }
-  20% { clip: rect(0, 900px, 0, 0); }
-  30% { clip: rect(10px, 900px, 40px, 0); transform: translate(-2px, 1px); }
-  100% { clip: rect(0, 900px, 0, 0); }
-}
-</style>
+    .screen { display: none; }
+    .active { display: block; }
+  </style>
 </head>
 <body>
+
 <!-- Seite 1 -->
 <div class="screen active" id="start-screen">
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
-<h1 class="glitch-text" data-text="Willst du wirklich betreten?">Willst du wirklich betreten?</h1>
-<div style="margin-top: 2rem;">
-<input id="password" style="font-family: monospace; font-size: 1rem; padding: 0.5rem;" type="text"/>
-<button onclick="checkPassword()" style="font-family: monospace; font-size: 1rem; margin-left: 0.5rem;">Enter</button>
+  <h1 style="text-align:center;">Willst du wirklich betreten?</h1>
 </div>
-</div>
-</div>
+
 <!-- Seite 2 -->
-
-
 <div class="screen" id="main-screen">
-<button class="password-toggle" onclick="togglePasswordBox()">Passwort</button>
-<div style="text-align: center; margin-bottom: 2rem;">
-<pre>████████████████████████████████████████████████████████████
-      R E C U R S I V E   D R E A M   S T A T E S
-             are we ever done dying?
+  <pre>████████████████████████████████████████████████████████████
+          R E C U R S I V E   D R E A M   S T A T E S
+                       are we ever done dying?
 ████████████████████████████████████████████████████████████
 
-✦ t.bering – 03.11.2023 – 04:04 Uhr  
-"Ich träume mich an Orte, an denen ich nie war, aber trotzdem warte."
-
-✦ unknown – 04.11.2023 – 00:00 Uhr  
-"Sie fehlt. Aber nicht so, wie ihr denkt."</pre>
-</div>
-<pre>
 Du bist hier, weil du es erlebt hast.
 Nicht weil du’s verstehst.
 Nicht weil du’s beweisen kannst.
@@ -152,10 +80,26 @@ Zugriff auf vollständige Log-Historie nicht mehr möglich.
 Hinweis:
 Einige Userinhalte können destruktive Denkmuster auslösen.
 Manche Gedanken kommen nicht zurück, wenn man sie zu Ende denkt.
+
+✦ t.bering – 03.11.2023 – 04:04 Uhr
+„Ich träume mich an Orte, an denen ich nie war, aber trotzdem warte.“
+
+✦ unknown – 04.11.2023 – 00:00 Uhr
+„Sie fehlt. Aber nicht so, wie ihr denkt.“
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🞬 WARNING: RECUR-Zustände verschärfen sich bei Selbstverleugnung.  
+🞬 REMEMBER: Nicht alle, die du wieder siehst, haben vergessen.  
+🞬 REMEMBER: Einige Dinge WOLLEN nicht verändert werden.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 🔒 DOWNLOADBEREICH
-[echo_in_the_static.mp4] —  Datei nicht mehr verfügbar
-[mirrorchild.jpg] —  Bild beschädigt oder leer
-[message_to_myself.txt] —  Zugriff verweigert
+[echo_in_the_static.mp4] — ❌ Datei nicht mehr verfügbar
+[mirrorchild.jpg] — 🕸️ Bild beschädigt oder leer
+[message_to_myself.txt] — 🔍 Zugriff verweigert
+
 Du liest das hier,
 weil du gehofft hast,
 du bekommst eine zweite Chance.
@@ -163,32 +107,36 @@ Vielleicht bekommst du sie.
 Vielleicht auch nicht.
 Vielleicht war sie nie zu retten.
 Vielleicht warst du es.
-    </pre>
-<div id="password-box" style="display: none;">
-<input id="password-input" onkeydown="checkPassword(event)" placeholder="&gt; Zugangscode eingeben" type="text"/>
+
+Zurück zur Startseite? [Y] / [N]</pre>
+  <div style="text-align:center; margin-top:2rem;">
+    <button onclick="document.getElementById('pwbox').style.display='block'">Passwort</button>
+    <div id="pwbox" style="display:none; margin-top:1rem;">
+      <input type="text" id="pwinput" placeholder="Passwort eingeben">
+      <button onclick="checkPassword()">Enter</button>
+    </div>
+  </div>
+  <div style="color:black;text-align:center;margin-top:4rem;">welcometotheafterlife//</div>
 </div>
-<div style="height: 4rem;"></div>
-<pre>🔒 DOKUMENTE
 
-[echo_in_the_static.mp4] — Datei beschädigt oder fehlt  
-[mirrorchild.jpg] — Vorschaubild nicht lesbar  
-[message_to_myself.txt] — Zugriff verweigert  
-[vermerk_l.rubens.txt] — Archiviert | Zugriff durch Autor gesperrt</pre><div style="text-align:center; margin-top: 4rem;"><span style="color: black;">welcometotheafterlife//</span></div></div>
+<!-- Seite 3 -->
+<div class="screen" id="easter-egg">
+  <h1 style="text-align:center; margin-top: 5rem;">erikistdergeilste</h1>
+</div>
 
-
-<!-- Seite 3 (Easter Egg) -->
-<div class="screen" id="easter-egg"><h1 style="text-align: center; color: #ff00ff; font-family: monospace; margin-top: 5rem;">erikistdergeilste</h1></div>
 <script>
 function checkPassword() {
-  const value = document.getElementById("password").value.trim().toLowerCase();
-  if (value === "welcometotheafterlife//") {
+  const val = document.getElementById("pwinput").value;
+  if (val === "welcometotheafterlife//") {
+    document.getElementById("main-screen").classList.add("active");
     document.getElementById("start-screen").classList.remove("active");
     document.getElementById("easter-egg").classList.add("active");
+    document.getElementById("main-screen").classList.remove("active");
   } else {
-    document.getElementById("start-screen").classList.remove("active");
-    document.getElementById("main-screen").classList.add("active");
+    alert("Falsches Passwort");
   }
 }
 </script>
+
 </body>
 </html>
