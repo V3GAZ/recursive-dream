@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+
+<html lang="de">
+<head>
+<meta charset="utf-8"/>
+<title>Recursive Dream States</title>
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #ff00ff;
+      font-family: monospace;
+      font-size: 16px;
+    }
+    .screen {
+      display: none;
+      padding: 4rem 2rem;
+    }
+    .active {
+      display: block;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
+    }
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+<!-- Seite 1 -->
+<div class="screen active" id="start-screen">
+<p style="text-align: center;">Willst du wirklich betreten?</p>
+<div style="text-align: center; margin-top: 2rem;">
+<input id="password" style="font-family: monospace; font-size: 1rem; padding: 0.5rem;" type="text"/>
+<button onclick="checkPassword()">Enter</button>
+</div>
+</div>
+<!-- Seite 2 -->
+<div class="screen" id="main-screen">
+<h1>Recursive Dream States</h1>
+<pre>
+[system] Log initialized. User activity may be recorded.
+
+✦ mirrorchild – 27.10.2023 – 02:11 Uhr  
+"Ich habe mich rückwärts erinnert. Es war schlimmer als vergessen."
+
+✦ admin.void – 28.10.2023 – 01:49 Uhr  
+"Nicht alle, die hier schreiben, leben noch."
+
+✦ t.bering – 03.11.2023 – 04:04 Uhr  
+"Ich träume mich an Orte, an denen ich nie war, aber trotzdem warte."
+
+✦ unknown – 04.11.2023 – 00:00 Uhr  
+"Sie fehlt. Aber nicht so, wie ihr denkt."
+  </pre>
+<br/><br/>
+<pre>
+🔒 DOKUMENTE
+
+[echo_in_the_static.mp4] — Datei beschädigt oder fehlt  
+[mirrorchild.jpg] — Vorschaubild nicht lesbar  
+[message_to_myself.txt] — Zugriff verweigert  
+[vermerk_l.rubens.txt] — Archiviert | Zugriff durch Autor gesperrt  
+  </pre>
+<div style="text-align:center;"><span style="color: black;">welcometotheafterlife//</span></div>
+<div style="height: 8rem;"></div>
+</div>
+<!-- Seite 3 (Easter Egg) -->
+<div class="screen" id="easter-egg"><h1 style="text-align: center; color: #ff00ff; font-family: monospace; margin-top: 5rem;">erikistdergeilste</h1></div>
+<script>
+function checkPassword() {
+  const value = document.getElementById("password").value.trim().toLowerCase();
+  if (value === "welcometotheafterlife//") {
+    document.getElementById("start-screen").classList.remove("active");
+    document.getElementById("easter-egg").classList.add("active");
+  } else {
+    document.getElementById("start-screen").classList.remove("active");
+    document.getElementById("main-screen").classList.add("active");
+  }
+}
+</script>
+</body>
+</html>
